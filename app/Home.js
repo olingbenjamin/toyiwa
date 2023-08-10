@@ -32,8 +32,7 @@ const Home = () => {
           justifyContent="space-between"
           alignItems="center"
           w="100%"
-          height={"60%"}
-        >
+          height={"60%"}>
           <HStack alignItems="center" marginLeft={2}>
             <Heading color="white" fontSize="24" fontWeight="bold">
               SmartBin
@@ -72,8 +71,7 @@ const Home = () => {
           shadow={"9"}
           width={"95%"}
           mb={"5"}
-          justifyContent={"space-evenly"}
-        >
+          justifyContent={"space-evenly"}>
           {user && (
             <Heading fontSize={"18"} alignSelf="center">
               {time < 12
@@ -100,14 +98,12 @@ const Home = () => {
                 width={"48%"}
                 height={200}
                 _pressed={{ backgroundColor: "gold" }}
-                onPress={() => nav.navigate("Pick up")}
-              >
+                onPress={() => nav.navigate("Pick up")}>
                 <Center
                   _text={{
                     color: "green.700",
                     fontWeight: "medium",
-                  }}
-                >
+                  }}>
                   <Icon
                     as={MaterialCommunityIcons}
                     name="dump-truck"
@@ -128,13 +124,12 @@ const Home = () => {
                 width={"48%"}
                 height={200}
                 _pressed={{ backgroundColor: "gold" }}
-              >
+                onPress={() => nav.navigate("Payment")}>
                 <Center
                   _text={{
                     color: "green.700",
                     fontWeight: "medium",
-                  }}
-                >
+                  }}>
                   <Icon
                     as={MaterialIcons}
                     name="payments"
@@ -155,14 +150,12 @@ const Home = () => {
                 width={"48%"}
                 height={200}
                 _pressed={{ backgroundColor: "gold" }}
-                onPress={() => nav.navigate("Schedule")}
-              >
+                onPress={() => nav.navigate("Schedule")}>
                 <Center
                   _text={{
                     color: "green.700",
                     fontWeight: "medium",
-                  }}
-                >
+                  }}>
                   <Icon
                     as={MaterialCommunityIcons}
                     name="calendar"
@@ -173,7 +166,7 @@ const Home = () => {
                 </Center>
               </Pressable>
 
-              <Pressable
+              {/* <Pressable
                 m={2}
                 ml={-1}
                 size="16"
@@ -198,7 +191,7 @@ const Home = () => {
                   />
                   Track Driver
                 </Center>
-              </Pressable>
+              </Pressable> */}
             </Stack>
           </Box>
         </ScrollView>

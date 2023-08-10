@@ -77,8 +77,7 @@ const PickUp = () => {
         shadow={"3"}
         shad
         width={"100%"}
-        mb={"5"}
-      >
+        mb={"5"}>
         <Pressable
           width={50}
           height={50}
@@ -95,8 +94,7 @@ const PickUp = () => {
           rounded={"full"}
           justifyContent={"space-evenly"}
           _pressed={{ backgroundColor: "gold" }}
-          onPress={() => nav.goBack()}
-        >
+          onPress={() => nav.goBack()}>
           <Icon
             as={Ionicons}
             name="chevron-back-outline"
@@ -124,8 +122,7 @@ const PickUp = () => {
               defaultValue={fields.categories}
               onChange={(values) => {
                 setFields({ ...fields, categories: [values] });
-              }}
-            >
+              }}>
               <Flex flexWrap={"wrap"} flexDirection={"row"} m={2}>
                 <Checkbox value="Yard waste" my="1">
                   Yard waste
@@ -197,8 +194,7 @@ const PickUp = () => {
               flexDirection={"row"}
               justifyContent={"space-between"}
               borderColor={"green.700"}
-              borderWidth={2}
-            >
+              borderWidth={2}>
               <Text fontSize={"18"} color="gray.500" fontWeight={"800"}>
                 Location
               </Text>
@@ -218,8 +214,7 @@ const PickUp = () => {
               isLoading={submitting}
               isDisabled={submitting}
               isLoadingText="Submitting"
-              _loading={{ backgroundColor: "#000000c0", color: "black" }}
-            >
+              _loading={{ backgroundColor: "#000000c0", color: "black" }}>
               <Heading color={"white"}>Next</Heading>
             </Button>
           </FormControl>

@@ -12,6 +12,7 @@ import PickUp from "./app/components/PickUp";
 import Requests from "./app/Requests";
 import Schedule from "./app/components/Schedule";
 import EditProfile from "./app/components/EditProfile";
+import Payment from "./app/components/Payment";
 import { useSelector } from "react-redux";
 
 export default function App() {
@@ -48,6 +49,10 @@ export default function App() {
   const ScheduleScreen = () => {
     const nav = useNavigation();
     return <Schedule back={() => nav.goBack()} />;
+  };
+  const PaymentScreen = () => {
+    const nav = useNavigation();
+    return <Payment back={() => nav.goBack()} />;
   };
 
   const EditProfileScreen = () => {
@@ -89,6 +94,11 @@ export default function App() {
         <Stack.Screen
           name="Schedule"
           component={ScheduleScreen}
+          options={options}
+        />
+        <Stack.Screen
+          name="Payment"
+          component={PaymentScreen}
           options={options}
         />
         <Stack.Screen
