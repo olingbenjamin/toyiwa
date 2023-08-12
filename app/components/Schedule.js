@@ -5,6 +5,7 @@ import { NativeBaseProvider, Heading, HStack, Text } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { useNavigation } from "@react-navigation/native";
 
 import axios from "axios";
 import getApi from "../getApi";
@@ -32,7 +33,7 @@ const Schedule = ({ back }) => {
     setExactTime(selectedTime.toTimeString());
     setTimeOpen(false);
   });
-
+  const nav = useNavigation();
   handleSchedule = async () => {
     const schedule = {
       user_id: user._id,
@@ -75,8 +76,7 @@ const Schedule = ({ back }) => {
         rounded="sm"
         shadow={"3"}
         shad
-        width={"100%"}
-      >
+        width={"100%"}>
         <Pressable
           width={50}
           height={50}
@@ -93,8 +93,7 @@ const Schedule = ({ back }) => {
           rounded={"full"}
           justifyContent={"space-evenly"}
           _pressed={{ backgroundColor: "gold" }}
-          onPress={back}
-        >
+          onPress={back}>
           <Icon
             as={Ionicons}
             name="chevron-back-outline"
@@ -137,8 +136,7 @@ const Schedule = ({ back }) => {
               defaultValue={categories}
               onChange={(values) => {
                 setCategories(values);
-              }}
-            >
+              }}>
               <Flex flexWrap={"wrap"} flexDirection={"row"} m={2}>
                 <Checkbox value="Yard waste" my="1">
                   Yard waste
@@ -195,8 +193,7 @@ const Schedule = ({ back }) => {
                     //backgroundColor={"gray.200"}
                     height={"100%"}
                     _pressed={{ backgroundColor: "amber.400" }}
-                    justifyItems={"center"}
-                  >
+                    justifyItems={"center"}>
                     <Icon
                       as={<Ionicons name={"caret-down"} />}
                       color="green.700"
@@ -231,8 +228,7 @@ const Schedule = ({ back }) => {
                     //backgroundColor={"gray.200"}
                     height={"100%"}
                     _pressed={{ backgroundColor: "amber.400" }}
-                    justifyItems={"center"}
-                  >
+                    justifyItems={"center"}>
                     <Icon
                       mb="1"
                       as={<Ionicons name={"caret-down"} />}
@@ -261,8 +257,7 @@ const Schedule = ({ back }) => {
                   size={"md"}
                   m={2}
                 />
-              }
-            ></Input>
+              }></Input>
             <FormControl.Label m={2}>
               Where are we picking the waste
             </FormControl.Label>
@@ -279,11 +274,11 @@ const Schedule = ({ back }) => {
               _pressed={{
                 backgroundColor: "gray.200",
               }}
+              onPress={() => nav.navigate("Map")}
               flexDirection={"row"}
               justifyContent={"space-between"}
               borderColor={"green.700"}
-              borderWidth={2}
-            >
+              borderWidth={2}>
               <Text fontSize={"18"} color="gray.500" fontWeight={"800"}>
                 Location
               </Text>
@@ -299,8 +294,7 @@ const Schedule = ({ back }) => {
               height={50}
               backgroundColor={"green.700"}
               _pressed={{ backgroundColor: "gold" }}
-              onPress={handleSchedule}
-            >
+              onPress={handleSchedule}>
               <Text fontSize={"18"} color="white" fontWeight={"800"}>
                 Submit
               </Text>

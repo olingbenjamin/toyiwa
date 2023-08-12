@@ -23,6 +23,7 @@ import {
 } from "@expo/vector-icons";
 import { Platform } from "react-native";
 import * as Location from "expo-location";
+import { useNavigation } from "@react-navigation/native";
 const Map = () => {
   const [openOverlay, setOpen] = useState(true);
   const [location, setLocation] = useState(null);
@@ -44,13 +45,26 @@ const Map = () => {
     })();
   }, []);
   console.log(location);
+  const nav = useNavigation();
   return (
     <NativeBaseProvider>
       <StatusBar
-        backgroundColor="transparent"
+        backgroundColor="white"
         style={time > 16 || time < 7 ? "light" : "dark"}
       />
+
       <View width={"100%"} height={"100%"}>
+        <Button
+          onPress={() => nav.goBack()}
+          style={{
+            position: "absolute",
+            zIndex: 20,
+            top: 80,
+            left: 40,
+            backgroundColor: "green",
+          }}>
+          Back
+        </Button>
         <MapView
           showsCompass={true}
           showsUserLocation={true}
@@ -72,15 +86,13 @@ const Map = () => {
                   longitudeDelta: 0.01,
                 }
           }
-          tintColor="blue"
-        ></MapView>
+          tintColor="blue"></MapView>
       </View>
       <Actionsheet
         isOpen={openOverlay}
         onClose={showOverLay}
         disableOverlay={true}
-        useRNModal={true}
-      >
+        useRNModal={true}>
         <Actionsheet.Content borderTopRadius="0">
           <Box w="100%" h={60} px={4} justifyContent="center">
             <Text
@@ -88,8 +100,7 @@ const Map = () => {
               color="gray.500"
               _dark={{
                 color: "gray.300",
-              }}
-            >
+              }}>
               Track Location
             </Text>
           </Box>

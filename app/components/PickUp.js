@@ -178,6 +178,7 @@ const PickUp = () => {
             <FormControl.Label m={2}>
               Where are we picking the waste?
             </FormControl.Label>
+
             <Pressable
               mb={"1.5"}
               alignSelf={"center"}
@@ -191,6 +192,7 @@ const PickUp = () => {
               _pressed={{
                 backgroundColor: "gray.200",
               }}
+              onPress={() => nav.navigate("Map")}
               flexDirection={"row"}
               justifyContent={"space-between"}
               borderColor={"green.700"}
